@@ -2,23 +2,23 @@
 
 namespace N3ttech\Valuing\Test\Intl;
 
-use N3ttech\Valuing\Intl\Locale;
+use N3ttech\Valuing\Intl\Country;
 use PHPUnit\Framework\TestCase as PHPUnitTestCase;
 
 /**
  * @internal
  * @coversNothing
  */
-class LocaleTest extends PHPUnitTestCase
+class CountryTest extends PHPUnitTestCase
 {
     /**
      * @test
      *
      * @throws \Assert\AssertionFailedException
      */
-    public function itCreatesPolishLocaleTest()
+    public function itCreatesPolishCountryTest()
     {
-        $this->assertInstanceOf(Locale::class, Locale::fromLocale('pl'));
+        $this->assertInstanceOf(Country::class, Country::fromCode('pl'));
     }
 
     /**
@@ -26,9 +26,9 @@ class LocaleTest extends PHPUnitTestCase
      *
      * @throws \Assert\AssertionFailedException
      */
-    public function throwsExceptionOnLocaleCreateTest()
+    public function throwsExceptionOnCountryCreateTest()
     {
         $this->expectException(\Assert\AssertionFailedException::class);
-        Locale::fromLocale('xx');
+        Country::fromCode('xx');
     }
 }

@@ -1,24 +1,24 @@
 <?php
 
-namespace N3ttech\Valuing\Test\Intl;
+namespace N3ttech\Valuing\Test\Char;
 
-use N3ttech\Valuing\Intl\Locale;
+use N3ttech\Valuing\Char\Email;
 use PHPUnit\Framework\TestCase as PHPUnitTestCase;
 
 /**
  * @internal
  * @coversNothing
  */
-class LocaleTest extends PHPUnitTestCase
+class EmailTest extends PHPUnitTestCase
 {
     /**
      * @test
      *
      * @throws \Assert\AssertionFailedException
      */
-    public function itCreatesPolishLocaleTest()
+    public function itCreatesEmailTest()
     {
-        $this->assertInstanceOf(Locale::class, Locale::fromLocale('pl'));
+        $this->assertInstanceOf(Email::class, Email::fromString('test@test.pl'));
     }
 
     /**
@@ -26,9 +26,9 @@ class LocaleTest extends PHPUnitTestCase
      *
      * @throws \Assert\AssertionFailedException
      */
-    public function throwsExceptionOnLocaleCreateTest()
+    public function throwsExceptionOnEmailCreateTest()
     {
         $this->expectException(\Assert\AssertionFailedException::class);
-        Locale::fromLocale('xx');
+        Email::fromString('xxx');
     }
 }

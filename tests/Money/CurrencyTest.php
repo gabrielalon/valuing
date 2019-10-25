@@ -1,24 +1,24 @@
 <?php
 
-namespace N3ttech\Valuing\Test\Intl;
+namespace N3ttech\Valuing\Test\Money;
 
-use N3ttech\Valuing\Intl\Locale;
+use N3ttech\Valuing\Money\Currency;
 use PHPUnit\Framework\TestCase as PHPUnitTestCase;
 
 /**
  * @internal
  * @coversNothing
  */
-class LocaleTest extends PHPUnitTestCase
+class CurrencyTest extends PHPUnitTestCase
 {
     /**
      * @test
      *
      * @throws \Assert\AssertionFailedException
      */
-    public function itCreatesPolishLocaleTest()
+    public function itCreatesPolishCurrencyTest()
     {
-        $this->assertInstanceOf(Locale::class, Locale::fromLocale('pl'));
+        $this->assertInstanceOf(Currency::class, Currency::fromCode('PLN'));
     }
 
     /**
@@ -26,9 +26,9 @@ class LocaleTest extends PHPUnitTestCase
      *
      * @throws \Assert\AssertionFailedException
      */
-    public function throwsExceptionOnLocaleCreateTest()
+    public function throwsExceptionOnCurrencyCreateTest()
     {
         $this->expectException(\Assert\AssertionFailedException::class);
-        Locale::fromLocale('xx');
+        Currency::fromCode('xxx');
     }
 }

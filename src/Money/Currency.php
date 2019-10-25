@@ -26,6 +26,6 @@ final class Currency extends VO
     protected function guard($code): void
     {
         Assertion::regex($code, '/[a-zA-Z]{3}/', 'Invalid Currency code: '.$code);
-        Assertion::inArray($code, Currencies::getNames(), 'Invalid Currency code: '.$code);
+        Assertion::inArray($code, Currencies::getCurrencyCodes(), 'Invalid Currency code: '.$code);
     }
 }

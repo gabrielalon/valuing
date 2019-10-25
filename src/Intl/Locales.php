@@ -31,7 +31,7 @@ final class Locales extends VO
      */
     public function addLocale(string $locale, string $text): void
     {
-        $this->value->add(Locale::fromLocale($locale), Char\Text::fromText($text));
+        $this->value->add(Locale::fromLocale($locale), Char\Text::fromString($text));
     }
 
     /**
@@ -43,7 +43,7 @@ final class Locales extends VO
      */
     public function getLocale(string $locale): Char\Text
     {
-        $text = Char\Text::fromText('');
+        $text = Char\Text::fromString('');
 
         if (true === $this->value->offsetExists($locale)) {
             /** @var Char\Text $text */
@@ -77,6 +77,14 @@ final class Locales extends VO
 
     /**
      * {@inheritdoc}
+     */
+    protected function guard($value): void
+    {
+        Assertion::isArray($value, 'Invalid Locales array');
+    }
+
+    /**
+     * {@inheritdoc}
      *
      * @throws \Assert\AssertionFailedException
      */
@@ -87,13 +95,5 @@ final class Locales extends VO
         foreach ($data as $locale => $text) {
             $this->addLocale($locale, $text);
         }
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    protected function guard($value): void
-    {
-        Assertion::isArray($value, 'Invalid Locales array');
     }
 }

@@ -14,7 +14,7 @@ final class Text extends VO
      *
      * @return Text
      */
-    public static function fromText(string $text): Text
+    public static function fromString(string $text): Text
     {
         return new Text($text);
     }
