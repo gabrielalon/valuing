@@ -5,7 +5,7 @@ namespace N3ttech\Valuing\Option;
 use Assert\Assertion;
 use N3ttech\Valuing\VO;
 
-class Check extends VO
+final class Check extends VO
 {
     /**
      * @param bool $check
