@@ -47,6 +47,14 @@ final class Uuids extends VO
     }
 
     /**
+     * @return array
+     */
+    public function toArray(): array
+    {
+        return array_keys($this->value->getArrayCopy());
+    }
+
+    /**
      * {@inheritdoc}
      */
     protected function guard($value): void
@@ -67,12 +75,4 @@ final class Uuids extends VO
             $this->addUuid($uuid);
         }
     }
-	
-	/**
-	 * @return array
-	 */
-    public function toArray(): array
-	{
-		return array_keys($this->value->getArrayCopy());
-	}
 }

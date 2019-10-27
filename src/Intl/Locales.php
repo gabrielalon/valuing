@@ -76,6 +76,24 @@ final class Locales extends VO
     }
 
     /**
+     * @return array
+     */
+    public function raw(): array
+    {
+        $data = [];
+
+        /**
+         * @var string
+         * @var Char\Text $text
+         */
+        foreach ($this->getLocales() as $locale => $text) {
+            $data[$locale] = $text->toString();
+        }
+
+        return $data;
+    }
+
+    /**
      * {@inheritdoc}
      */
     protected function guard($value): void
