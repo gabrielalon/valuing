@@ -28,7 +28,7 @@ final class Text extends VO
         Assertion::maxLength(
             $text,
             $this->maxLength(),
-            sprintf('Invalid Text string length (%d): '.$text, $this->maxLength())
+            sprintf('Invalid Text string length (%d)', $this->maxLength())
         );
     }
 

@@ -28,7 +28,7 @@ final class Content extends VO
         Assertion::maxLength(
             $content,
             $this->maxLength(),
-            sprintf('Invalid Content string length (%d): '.$content, $this->maxLength())
+            sprintf('Invalid Content string length (%d)', $this->maxLength())
         );
     }
 
