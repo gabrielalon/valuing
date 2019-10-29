@@ -1,18 +1,17 @@
 <?php
 
-namespace N3ttech\Valuing\Intl\Utils;
+namespace N3ttech\Valuing\Intl\Language;
 
 use Assert;
 use N3ttech\Valuing\Char;
-use N3ttech\Valuing\Intl;
 
 final class Collection extends \ArrayIterator
 {
     /**
-     * @param Intl\Locale $locale
-     * @param Char\Text   $text
+     * @param Locale    $locale
+     * @param Char\Text $text
      */
-    public function add(Intl\Locale $locale, Char\Text $text): void
+    public function add(Locale $locale, Char\Text $text): void
     {
         $this->offsetSet($locale->toString(), $text);
     }

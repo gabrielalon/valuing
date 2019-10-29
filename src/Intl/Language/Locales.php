@@ -1,13 +1,13 @@
 <?php
 
-namespace N3ttech\Valuing\Intl;
+namespace N3ttech\Valuing\Intl\Language;
 
 use Assert\Assertion;
 use N3ttech\Valuing\Char;
 use N3ttech\Valuing\VO;
 
 /**
- * @property Utils\Collection $value
+ * @property Collection $value
  */
 final class Locales extends VO
 {
@@ -108,7 +108,7 @@ final class Locales extends VO
      */
     protected function setValue($data): void
     {
-        $this->value = new Utils\Collection();
+        $this->value = new Collection();
 
         foreach ($data as $locale => $text) {
             $this->addLocale($locale, $text);

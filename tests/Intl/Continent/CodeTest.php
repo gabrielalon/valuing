@@ -1,24 +1,24 @@
 <?php
 
-namespace N3ttech\Valuing\Test\Intl;
+namespace N3ttech\Valuing\Test\Intl\Continent;
 
-use N3ttech\Valuing\Intl\Country;
+use N3ttech\Valuing\Intl\Continent\Code;
 use PHPUnit\Framework\TestCase as PHPUnitTestCase;
 
 /**
  * @internal
  * @coversNothing
  */
-class CountryTest extends PHPUnitTestCase
+class CodeTest extends PHPUnitTestCase
 {
     /**
      * @test
      *
      * @throws \Assert\AssertionFailedException
      */
-    public function itCreatesPolishCountryTest()
+    public function itCreatesPolishContinentTest()
     {
-        $this->assertInstanceOf(Country::class, Country::fromCode('pl'));
+        $this->assertInstanceOf(Code::class, Code::fromCode('eu'));
     }
 
     /**
@@ -26,9 +26,9 @@ class CountryTest extends PHPUnitTestCase
      *
      * @throws \Assert\AssertionFailedException
      */
-    public function throwsExceptionOnCountryCreateTest()
+    public function throwsExceptionOnContinentCreateTest()
     {
         $this->expectException(\Assert\AssertionFailedException::class);
-        Country::fromCode('xx');
+        Code::fromCode('xxx');
     }
 }

@@ -1,12 +1,13 @@
 <?php
 
-namespace N3ttech\Valuing\Intl;
+namespace N3ttech\Valuing\Intl\Language;
 
 use Assert\Assertion;
+use N3ttech\Valuing\Identity\AggregateId;
 use N3ttech\Valuing\VO;
 use Symfony\Component\Intl\Languages;
 
-final class Locale extends VO
+final class Locale extends VO implements AggregateId
 {
     /**
      * @param string $locale
