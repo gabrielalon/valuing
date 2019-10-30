@@ -34,13 +34,13 @@ final class Codes extends VO
     }
 
     /**
-     * @param Locales $other
+     * @param Codes $other
      *
      * @return bool
      */
     public function equals($other): bool
     {
-        if (false == $other instanceof Locales) {
+        if (false == $other instanceof Codes) {
             return false;
         }
 
