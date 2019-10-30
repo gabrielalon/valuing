@@ -27,6 +27,6 @@ final class Code extends VO implements AggregateId
     protected function guard($code): void
     {
         Assertion::regex($code, '/^[a-zA-Z]{3}$/', 'Invalid Currency code: '.$code);
-        Assertion::inArray(mb_strtoupper($code), Currencies::getCurrencyCodes(), 'Invalid Currency code: '.$code);
+        Assertion::keyExists(Currencies::getNames(), mb_strtoupper($code), 'Invalid Currency code: '.$code);
     }
 }

@@ -28,9 +28,9 @@ final class Codes extends VO
      *
      * @throws \Assert\AssertionFailedException
      */
-    public function addLocale(string $locale): void
+    public function addCode(string $locale): void
     {
-        $this->value->add(Locale::fromLocale($locale), Text::fromString(''));
+        $this->value->add(Code::fromCode($locale), Text::fromString(''));
     }
 
     /**
@@ -73,7 +73,7 @@ final class Codes extends VO
         $this->value = new Collection();
 
         foreach ($locales as $locale) {
-            $this->addLocale($locale);
+            $this->addCode($locale);
         }
     }
 }

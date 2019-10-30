@@ -9,29 +9,29 @@ use N3ttech\Valuing\VO;
 /**
  * @property Collection $value
  */
-final class Locales extends VO
+final class Contents extends VO
 {
     /**
      * @param array $data
      *
-     * @throws \Assert\AssertionFailedException
+     *@throws \Assert\AssertionFailedException
      *
-     * @return Locales
+     * @return Contents
      */
-    public static function fromArray(array $data): Locales
+    public static function fromArray(array $data): Contents
     {
-        return new Locales($data);
+        return new Contents($data);
     }
 
     /**
      * @param string $locale
-     * @param string $text
+     * @param string $content
      *
      * @throws \Assert\AssertionFailedException
      */
-    public function addLocale(string $locale, string $text): void
+    public function addLocale(string $locale, string $content): void
     {
-        $this->value->add(Locale::fromLocale($locale), Char\Text::fromString($text));
+        $this->value->add(Code::fromCode($locale), Char\Content::fromString($content));
     }
 
     /**
@@ -39,18 +39,18 @@ final class Locales extends VO
      *
      *@throws \Assert\AssertionFailedException
      *
-     * @return Char\Text
+     * @return Char\Content
      */
-    public function getLocale(string $locale): Char\Text
+    public function getLocale(string $locale): Char\Char
     {
-        $text = Char\Text::fromString('');
+        $content = Char\Content::fromString('');
 
         if (true === $this->value->offsetExists($locale)) {
-            /** @var Char\Text $text */
-            $text = $this->value->offsetGet($locale);
+            /** @var Char\Content $content */
+            $content = $this->value->offsetGet($locale);
         }
 
-        return $text;
+        return $content;
     }
 
     /**
@@ -62,13 +62,13 @@ final class Locales extends VO
     }
 
     /**
-     * @param Locales $other
+     * @param Contents $other
      *
      * @return bool
      */
     public function equals($other): bool
     {
-        if (false == $other instanceof Locales) {
+        if (false == $other instanceof Contents) {
             return false;
         }
 
@@ -84,10 +84,10 @@ final class Locales extends VO
 
         /**
          * @var string
-         * @var Char\Text $text
+         * @var Char\Content $content
          */
-        foreach ($this->getLocales() as $locale => $text) {
-            $data[$locale] = $text->toString();
+        foreach ($this->getLocales() as $locale => $content) {
+            $data[$locale] = $content->toString();
         }
 
         return $data;
@@ -110,8 +110,8 @@ final class Locales extends VO
     {
         $this->value = new Collection();
 
-        foreach ($data as $locale => $text) {
-            $this->addLocale($locale, $text);
+        foreach ($data as $locale => $content) {
+            $this->addLocale($locale, $content);
         }
     }
 }

@@ -8,10 +8,10 @@ use N3ttech\Valuing\Char;
 final class Collection extends \ArrayIterator
 {
     /**
-     * @param Locale    $locale
-     * @param Char\Text $text
+     * @param Code      $locale
+     * @param Char\Char $text
      */
-    public function add(Locale $locale, Char\Text $text): void
+    public function add(Code $locale, Char\Char $text): void
     {
         $this->offsetSet($locale->toString(), $text);
     }
@@ -21,7 +21,7 @@ final class Collection extends \ArrayIterator
      *
      * @return Char\Text
      */
-    public function get(string $locale): Char\Text
+    public function get(string $locale): Char\Char
     {
         if (false === $this->offsetExists($locale)) {
             throw new Assert\InvalidArgumentException('Not Found Locale string: '.$locale, $locale);

@@ -5,7 +5,7 @@ namespace N3ttech\Valuing\Char;
 use Assert\Assertion;
 use N3ttech\Valuing\VO;
 
-final class Content extends VO
+final class Content extends VO implements Char
 {
     /**
      * @param string $content

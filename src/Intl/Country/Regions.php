@@ -3,7 +3,7 @@
 namespace N3ttech\Valuing\Intl\Country;
 
 use Assert\Assertion;
-use N3ttech\Valuing\Intl\Language\Locales;
+use N3ttech\Valuing\Intl\Language\Texts;
 use N3ttech\Valuing\VO;
 
 /**
@@ -30,7 +30,7 @@ final class Regions extends VO
     {
         $regions = [];
 
-        /** @var Locales $region */
+        /** @var Texts $region */
         foreach ($this->value->getArrayCopy() as $region) {
             $regions[] = $region->raw();
         }
@@ -49,9 +49,9 @@ final class Regions extends VO
             return false;
         }
 
-        /** @var Locales $region */
+        /** @var Texts $region */
         foreach ($this->value->getArrayCopy() as $region) {
-            /** @var Locales $otherRegion */
+            /** @var Texts $otherRegion */
             foreach ($other->value->getArrayCopy() as $otherRegion) {
                 if (false === $otherRegion->equals($region)) {
                     return false;
@@ -81,7 +81,7 @@ final class Regions extends VO
 
         /** @var string[] $region */
         foreach ($regions as $region) {
-            $this->value->append(Locales::fromArray($region));
+            $this->value->append(Texts::fromArray($region));
         }
     }
 }

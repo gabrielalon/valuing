@@ -2,23 +2,23 @@
 
 namespace N3ttech\Valuing\Test\Intl\Language;
 
-use N3ttech\Valuing\Intl\Language\Locales;
+use N3ttech\Valuing\Intl\Language\Code;
 use PHPUnit\Framework\TestCase as PHPUnitTestCase;
 
 /**
  * @internal
  * @coversNothing
  */
-class LocalesTest extends PHPUnitTestCase
+class CodeTest extends PHPUnitTestCase
 {
     /**
      * @test
      *
      * @throws \Assert\AssertionFailedException
      */
-    public function itCreatesPolishLocalesTest()
+    public function itCreatesPolishLocaleTest()
     {
-        $this->assertInstanceOf(Locales::class, Locales::fromArray(['pl' => 'translate']));
+        $this->assertInstanceOf(Code::class, Code::fromCode('pl'));
     }
 
     /**
@@ -26,9 +26,9 @@ class LocalesTest extends PHPUnitTestCase
      *
      * @throws \Assert\AssertionFailedException
      */
-    public function throwsExceptionOnLocalesCreateTest()
+    public function throwsExceptionOnLocaleCreateTest()
     {
         $this->expectException(\Assert\AssertionFailedException::class);
-        Locales::fromArray(['xx' => 'translate']);
+        Code::fromCode('xx');
     }
 }
