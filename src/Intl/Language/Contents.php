@@ -14,7 +14,7 @@ final class Contents extends VO
     /**
      * @param array $data
      *
-     *@throws \Assert\AssertionFailedException
+     * @throws \Assert\AssertionFailedException
      *
      * @return Contents
      */

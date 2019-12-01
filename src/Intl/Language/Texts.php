@@ -37,7 +37,7 @@ final class Texts extends VO
     /**
      * @param string $locale
      *
-     *@throws \Assert\AssertionFailedException
+     * @throws \Assert\AssertionFailedException
      *
      * @return Char\Text
      */
