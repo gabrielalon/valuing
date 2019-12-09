@@ -19,7 +19,7 @@
     "php": ">=7.3",
     "ramsey/uuid": "^3.8",
     "beberlei/assert": "^3.2",
-    "symfony/intl": "5.0.*",
+    "symfony/intl": "^4.1.0",
     "n3ttech/checking": "^1.1"
   },
   "require-dev": {
